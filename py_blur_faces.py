@@ -10,17 +10,16 @@ else:
 
 image = cv2.imread(imagePath)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 print(cv2.data.haarcascades)
 # eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
 features = [
-    cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt_tree.xml')
+    cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     # cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile.xml')
 ]
 features = [feature.detectMultiScale(
     gray,
     scaleFactor=1.1,
-    minNeighbors=10,
+    minNeighbors=5,
     minSize=(70, 70),
     flags = cv2.CASCADE_SCALE_IMAGE
 )
